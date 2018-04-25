@@ -27,9 +27,9 @@ class Bio extends React.Component {
           }}
         />
         <p>
-          Written by <strong>Kyle Mathews</strong> who lives and works in San
+          Written by <strong>Randy Arba</strong> who lives, study, and works in San
           Francisco building useful things.{' '}
-          <a href="https://twitter.com/kylemathews">
+          <a href="https://twitter.com/RandyArba">
             You should follow him on Twitter
           </a>
         </p>
