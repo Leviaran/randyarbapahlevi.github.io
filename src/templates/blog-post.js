@@ -7,6 +7,7 @@ import get from 'lodash/get'
 
 import Bio from '../components/Bio'
 import { rhythm, scale } from '../utils/typography'
+import * as fontAwesome from 'react-icons/lib/fa/'
 // import { Segment, Icon, Container, Sidebar, Button } from "semantic-ui-react";
 
 
@@ -36,11 +37,11 @@ class BlogPostTemplate extends React.Component {
             style={{
               boxShadow: 'none',
               textDecoration: 'none',
-              color: 'inherit',
+              color: 'inherit',              
             }}
             to={'/'}
           >
-            Gatsby Starter Blog
+            <fontAwesome.FaHome size='21px' color='black' /> Home
           </Link>
         </h3>
         <h1>{post.frontmatter.title}</h1>

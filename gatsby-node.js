@@ -16,10 +16,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
               edges {
                 node {
+                  id
+                  excerpt
                   fields {
                     slug
                   }
                   frontmatter {
+                    date(formatString: "DD MMMM, YYYY")
                     title
                   }
                 }
@@ -28,7 +31,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         `
       ).then(result => {
-        
+
         if (result.errors) {
           console.log(result.errors)
           reject(result.errors)
