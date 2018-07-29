@@ -22,15 +22,14 @@ class Bio extends React.Component {
           style={{
             marginRight: rhythm(1 / 2),
             marginBottom: 0,
-            width: rhythm(2),
-            height: rhythm(2),
+            width: rhythm(4),
+            height: rhythm(4),
           }}
         />
-        <p>
-          Written by <strong>Randy Arba</strong> who lives, study, and works in San
-          Francisco building useful things.{' '}
+        <p style={{marginTop: 10}}>          
+          Written by <strong>Randy Arba</strong> who lives, study, <br/> and works in Yogyakarta building useful things.{' '}
           <a href="https://twitter.com/RandyArba">
-            You should follow him on Twitter
+            <br/>You should follow him on Twitter
           </a>
         </p>
       </div>

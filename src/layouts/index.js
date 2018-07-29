@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import { rhythm, scale } from '../utils/typography'
+import { rhythm} from '../utils/typography'
+
+import * as fontAwesome from 'react-icons/lib/fa/'
 
 class Template extends React.Component {
   render() {
@@ -13,61 +15,34 @@ class Template extends React.Component {
       rootPath = __PATH_PREFIX__ + `/`
     }
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            MobileDev
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            Gatsby Starter Blog
-          </Link>
-        </h3>
-      )
-    }
     return (
-      <div
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        {header}
-        {children()}
+      <div>
+        <div
+          style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            maxWidth: rhythm(24),
+            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          }}
+        >
+          {header}
+          {children()}
+        </div>
+
+        <footer style={{ width: "100%", backgroundColor: 'black', bottom: 0 }}>
+          <div style={{ alignContent: 'center', marginLeft: 'auto', marginRight: 'auto', marginBottom: 0 }}>
+            <p style={{
+              marginBottom: 0, color: 'white', padding: '10px 0px 10px',
+              textAlign: 'center', position: 'static', fontSize: '13px', fontFamily: 'Montserrat, sans-serif'
+            }}>
+              Made with &nbsp;<fontAwesome.FaHeart size='13px' color='red' />&nbsp; and coffee
+              &nbsp;<fontAwesome.FaCircle size='5px' color='white' />&nbsp; Powered by Gatsby
+            </p>
+          </div>
+        </footer>
+
       </div>
+
     )
   }
 }

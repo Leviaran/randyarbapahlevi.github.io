@@ -1,3 +1,5 @@
+
+
 import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
@@ -5,6 +7,8 @@ import get from 'lodash/get'
 
 import Bio from '../components/Bio'
 import { rhythm, scale } from '../utils/typography'
+// import { Segment, Icon, Container, Sidebar, Button } from "semantic-ui-react";
+
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -12,9 +16,33 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const { previous, next } = this.props.pathContext
 
+    const ListLink = props =>
+      <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+        <Link to={props.to}>
+          {props.children}
+        </Link>
+      </li>
+
     return (
       <div>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        <h3
+          style={{
+            fontFamily: 'Montserrat, sans-serif',
+            marginTop: 0,
+            marginBottom: rhythm(-1),
+          }}
+        >
+          <Link
+            style={{
+              boxShadow: 'none',
+              textDecoration: 'none',
+              color: 'inherit',
+            }}
+            to={'/'}
+          >
+            Gatsby Starter Blog
+          </Link>
+        </h3>
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
@@ -59,6 +87,7 @@ class BlogPostTemplate extends React.Component {
             </li>
           )}
         </ul>
+
       </div>
     )
   }

@@ -2,6 +2,7 @@ const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const createPaginatedPages = require("gatsby-paginate");
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
@@ -27,6 +28,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         `
       ).then(result => {
+        
         if (result.errors) {
           console.log(result.errors)
           reject(result.errors)
@@ -38,6 +40,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         _.each(posts, (post, index) => {
           const previous = index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
+
+          createPaginatedPages({
+            edges: result.data.allMarkdownRemark.edges,
+            createPage: createPage,
+            pageTemplate: "src/templates/index.js",
+            pageLength: 5, // This is optional and defaults to 10 if not used
+            pathPrefix: "", // This is optional and defaults to an empty string if not used
+            context: {} // This is optional and defaults to an empty object if not used
+          });
 
           createPage({
             path: post.node.fields.slug,
