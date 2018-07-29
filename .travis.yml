@@ -5,7 +5,7 @@ cache:
 notifications:
   email:
     recipients:
-      - chen@huchen.me
+      - randy.arba@gmail.com
     on_success: always
     on_failure: always
 node_js:
